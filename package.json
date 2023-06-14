@@ -1,0 +1,31 @@
+{
+  "name": "checkmythreedreality",
+  "version": "1.0.0",
+  "description": "Learning how to create a basic webpage with three.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenonth/CheckMyThreeDReality.git"
+  },
+  "keywords": [
+    "Three.js",
+    "Learning",
+    "New",
+    "Student"
+  ],
+  "author": "Xenonth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xenonth/CheckMyThreeDReality/issues"
+  },
+  "homepage": "https://github.com/xenonth/CheckMyThreeDReality#readme",
+  "dependencies": {
+    "three": "^0.153.0"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}
