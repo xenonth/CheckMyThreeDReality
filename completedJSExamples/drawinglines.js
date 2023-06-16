@@ -18,17 +18,58 @@ const scene = new THREE.Scene();
 const material = new THREE.LineBasicMaterial({color: 0x0000ff});
 
 //setting points to draw a square
-const points = [];
-points.push(new THREE.Vector3(0, -10, 0));
-points.push(new THREE.Vector3(10, 0, 0));
-points.push(new THREE.Vector3(0, 10, 0));
-points.push(new THREE.Vector3(-10, 0, 0));
-points.push(new THREE.Vector3(0, -10, 0));
+const square = [];
+square.push(new THREE.Vector3(0, -10, 0));
+square.push(new THREE.Vector3(10, 0, 0));
+square.push(new THREE.Vector3(0, 10, 0));
+square.push(new THREE.Vector3(-10, 0, 0));
+square.push(new THREE.Vector3(0, -10, 0));
 
-const geometry = new THREE.BufferGeometry().setFromPoints( points );
+//creating the top triangle
+const topTriangle = [];
+topTriangle.push(new THREE.Vector3(0, 10, 0));
+topTriangle.push(new THREE.Vector3(-10, 20, 0));
+topTriangle.push(new THREE.Vector3(10, 20, 0));
+topTriangle.push(new THREE.Vector3(0, 10, 0));
+
+//Drawing Right Triangle
+const rightTriangle = [];
+rightTriangle.push(new THREE.Vector3(10, 0, 0));
+rightTriangle.push(new THREE.Vector3(20, 10, 0));
+rightTriangle.push(new THREE.Vector3(20, -10, 0));
+rightTriangle.push(new THREE.Vector3(10, 0, 0));
+
+//Drawing Left Triangle
+const leftTriangle = [];
+leftTriangle.push(new THREE.Vector3(-10, 0, 0));
+leftTriangle.push(new THREE.Vector3(-20, 10, 0));
+leftTriangle.push(new THREE.Vector3(-20, -10, 0));
+leftTriangle.push(new THREE.Vector3(-10, 0, 0));
+
+//Drawing Left Triangle
+const bottomTriangle = [];
+bottomTriangle.push(new THREE.Vector3(0,-10,0))
+bottomTriangle.push(new THREE.Vector3(10,-20,0))
+bottomTriangle.push(new THREE.Vector3(-10,-20,0))
+bottomTriangle.push(new THREE.Vector3(0,-10,0))
+
+
+const geometrySquare = new THREE.BufferGeometry().setFromPoints( square );
+const geometryTopTriangle = new THREE.BufferGeometry().setFromPoints( topTriangle );
+const geometryRightTriangle = new THREE.BufferGeometry().setFromPoints( rightTriangle );
+const geometryBottomTriangle = new THREE.BufferGeometry().setFromPoints( bottomTriangle );
+const geometryLeftTriangle = new THREE.BufferGeometry().setFromPoints( leftTriangle );
 
 //creating the line using geometry and material
-const line = new THREE.Line( geometry, material);
+const lineOne = new THREE.Line( geometrySquare, material);
+const lineTwo = new THREE.Line( geometryTopTriangle, material);
+const lineThree = new THREE.Line( geometryRightTriangle, material);
+const lineFour = new THREE.Line( geometryBottomTriangle, material);
+const lineFive = new THREE.Line( geometryLeftTriangle, material);
 
-scene.add(line);
+scene.add(lineOne);
+scene.add(lineTwo);
+scene.add(lineThree);
+scene.add(lineFour);
+scene.add(lineFive);
 renderer.render(scene, camera);

@@ -1,6 +1,4 @@
 //test check for WebGL capability
-
-
 if (WebGL.isWebGLAvailable() ) {
 
     //initate functions here
