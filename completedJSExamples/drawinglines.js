@@ -48,10 +48,17 @@ leftTriangle.push(new THREE.Vector3(-10, 0, 0));
 
 //Drawing Left Triangle
 const bottomTriangle = [];
-bottomTriangle.push(new THREE.Vector3(0,-10,0))
-bottomTriangle.push(new THREE.Vector3(10,-20,0))
-bottomTriangle.push(new THREE.Vector3(-10,-20,0))
-bottomTriangle.push(new THREE.Vector3(0,-10,0))
+bottomTriangle.push(new THREE.Vector3(0,-10,0));
+bottomTriangle.push(new THREE.Vector3(10,-20,0));
+bottomTriangle.push(new THREE.Vector3(-10,-20,0));
+bottomTriangle.push(new THREE.Vector3(0,-10,0));
+
+//outer edging connecter points
+const bottomToRight = [];
+bottomToRight.push(new THREE.Vector3(10,-20,0));
+bottomToRight.push(new THREE.Vector3(20,-10,0));
+
+
 
 
 const geometrySquare = new THREE.BufferGeometry().setFromPoints( square );
@@ -59,6 +66,7 @@ const geometryTopTriangle = new THREE.BufferGeometry().setFromPoints( topTriangl
 const geometryRightTriangle = new THREE.BufferGeometry().setFromPoints( rightTriangle );
 const geometryBottomTriangle = new THREE.BufferGeometry().setFromPoints( bottomTriangle );
 const geometryLeftTriangle = new THREE.BufferGeometry().setFromPoints( leftTriangle );
+const geometryConectorbr    = new THREE.BufferGeometry().setFromPoints( bottomToRight );
 
 //creating the line using geometry and material
 const lineOne = new THREE.Line( geometrySquare, material);
@@ -66,10 +74,12 @@ const lineTwo = new THREE.Line( geometryTopTriangle, material);
 const lineThree = new THREE.Line( geometryRightTriangle, material);
 const lineFour = new THREE.Line( geometryBottomTriangle, material);
 const lineFive = new THREE.Line( geometryLeftTriangle, material);
+const lineSix = new THREE.Line( geometryConectorbr, material);
 
 scene.add(lineOne);
 scene.add(lineTwo);
 scene.add(lineThree);
 scene.add(lineFour);
 scene.add(lineFive);
+scene.add(lineSix);
 renderer.render(scene, camera);
