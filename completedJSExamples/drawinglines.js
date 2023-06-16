@@ -17,11 +17,13 @@ const scene = new THREE.Scene();
 //create a blue LineBasicMaterial
 const material = new THREE.LineBasicMaterial({color: 0x0000ff});
 
-//creating geometry with vertices
+//setting points to draw lines between
 const points = [];
-points.push(new THREE.Vector3(-10, 0, 0));
-points.push(new THREE.Vector3(0, 10, 0));
+points.push(new THREE.Vector3(0, -10, 0));
 points.push(new THREE.Vector3(10, 0, 0));
+points.push(new THREE.Vector3(0, 10, 0));
+points.push(new THREE.Vector3(-10, 0, 0));
+points.push(new THREE.Vector3(0, -10, 0));
 
 const geometry = new THREE.BufferGeometry().setFromPoints( points );
 
