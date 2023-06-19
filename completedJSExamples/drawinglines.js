@@ -58,7 +58,20 @@ const bottomToRight = [];
 bottomToRight.push(new THREE.Vector3(10,-20,0));
 bottomToRight.push(new THREE.Vector3(20,-10,0));
 
+//outer edging connecter points top right
+const topToRight = [];
+topToRight.push(new THREE.Vector3(10,20,0));
+topToRight.push(new THREE.Vector3(20,10,0));
 
+//outer edging connecter points top right
+const topToLeft = [];
+topToLeft.push(new THREE.Vector3(-10,20,0));
+topToLeft.push(new THREE.Vector3(-20,10,0));
+
+//outer edging connecter points top right
+const bottomToLeft = [];
+bottomToLeft.push(new THREE.Vector3(-10,-20,0));
+bottomToLeft.push(new THREE.Vector3(-20,-10,0));
 
 
 const geometrySquare = new THREE.BufferGeometry().setFromPoints( square );
@@ -67,19 +80,29 @@ const geometryRightTriangle = new THREE.BufferGeometry().setFromPoints( rightTri
 const geometryBottomTriangle = new THREE.BufferGeometry().setFromPoints( bottomTriangle );
 const geometryLeftTriangle = new THREE.BufferGeometry().setFromPoints( leftTriangle );
 const geometryConectorbr    = new THREE.BufferGeometry().setFromPoints( bottomToRight );
+const geometryConectortr = new THREE.BufferGeometry().setFromPoints( topToRight );
+const geometryConectortl = new THREE.BufferGeometry().setFromPoints( topToLeft );
+const geometryConectortlb = new THREE.BufferGeometry().setFromPoints( bottomToLeft );
 
-//creating the line using geometry and material
+//drawing the line using geometry and material variables
 const lineOne = new THREE.Line( geometrySquare, material);
 const lineTwo = new THREE.Line( geometryTopTriangle, material);
 const lineThree = new THREE.Line( geometryRightTriangle, material);
 const lineFour = new THREE.Line( geometryBottomTriangle, material);
 const lineFive = new THREE.Line( geometryLeftTriangle, material);
 const lineSix = new THREE.Line( geometryConectorbr, material);
+const lineSeven = new THREE.Line( geometryConectortr, material);
+const lineEight = new THREE.Line( geometryConectortl, material);
+const lineNine = new THREE.Line( geometryConectortlb, material);
 
+//Adding different shapes to the scene
 scene.add(lineOne);
 scene.add(lineTwo);
 scene.add(lineThree);
 scene.add(lineFour);
 scene.add(lineFive);
 scene.add(lineSix);
+scene.add(lineSeven);
+scene.add(lineEight);
+scene.add(lineNine);
 renderer.render(scene, camera);
