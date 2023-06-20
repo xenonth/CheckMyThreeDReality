@@ -1,0 +1,13 @@
+/* style to have text sit above the image at point 100 */
+
+#info {
+	position: absolute;
+	top: 10px;
+	width: 100%;
+    color: #ffffff;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
+
+body { margin: 0; }
