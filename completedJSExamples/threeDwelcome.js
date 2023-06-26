@@ -4,9 +4,11 @@ import WebGL from "three/addons/capabilities/WebGL.js"
 
 //imports for threed text.
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
-import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import helvetikerFont from 'three/examples/fonts/helvetiker_regular.typeface.json';
 
-import HelvetikerFont from 'three/examples/fonts/helvetiker_regular.typeface.json';
+
+import HelvetikerFont from '../node_modules/three/examples/fonts/helvetiker_regular.typeface.json';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -18,7 +20,7 @@ document.body.appendChild( renderer.domElement );
 
 const loader = new FontLoader();
 //redndering the font
-loader.load('three/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+loader.load(HelvetikerFont, function (font) {
 
    const geometry = new TextGeometry('Hello Three.js!', {
       font: font,
