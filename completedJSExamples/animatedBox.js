@@ -37,3 +37,5 @@ if (WebGL.isWebGLAvailable() ) {
     const warning = WebGL.getWebGLErrorMessage();
     document.getElementById('container').appendChild( warning );
 }
+
+console.log("its connected");
