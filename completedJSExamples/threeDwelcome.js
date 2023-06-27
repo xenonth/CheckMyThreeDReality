@@ -1,8 +1,7 @@
 import * as THREE from 'three';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
-
-import typefaceFont from 'three/examples/fonts/helvetiker_regular.typeface.json'
+import optimer_bold from 'three/examples/fonts/optimer_bold.typeface.json';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -15,12 +14,12 @@ const loader = new FontLoader();
 
 const font = loader.load(
 	// resource URL
-	typefaceFont,
+	optimer_bold,
 
 	// onLoad callback
 	function ( font ) {
 		// do something with the font
-		console.log( "Armed and loaded" );
+		console.log( font );
 	},
 
 	// onProgress callback
@@ -29,8 +28,8 @@ const font = loader.load(
 	},
 
 	// onError callback
-	function (error) {
-		console.log( `text Resource failed to load` );
+	function ( err ) {
+		console.log( 'An error happened' );
 	}
 );
 
