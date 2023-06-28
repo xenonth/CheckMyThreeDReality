@@ -7,6 +7,8 @@ scene.background = new THREE.Color(0xffffff);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+//variables for mathematics in scenes
+let negativePi = - 3.141569 / 2;
 // inititate camera
 
 camera.position.x = 3;
@@ -29,7 +31,7 @@ controls.update();
 //creating the plane
 const plane = new THREE.Mesh(new THREE.PlaneGeometry(200,200), new THREE.MeshPhongMaterial({color: 0x0a7d15}))
 
-plane.rotation = - Math.PI/2;
+plane.rotation.x = - Math.PI / 2;
 plane.receiveShadow = true;
 scene.add(plane);
 
@@ -53,3 +55,5 @@ function animate() {
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }
+
+animate();
