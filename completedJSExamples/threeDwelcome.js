@@ -1,7 +1,6 @@
 import * as THREE from 'three';
+//import { FileLoader } from 'three/addons/loaders/FontLoader.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
-
-import optimer_bold from 'three/examples/fonts/optimer_bold.typeface.json';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -10,11 +9,11 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+//calling fontloader
 const loader = new FontLoader();
-
 const font = loader.load(
 	// resource URL
-	optimer_bold,
+	'fonts/helvetiker_bold.typeface.json',
 
 	// onLoad callback
 	function ( font ) {
@@ -29,7 +28,7 @@ const font = loader.load(
 
 	// onError callback
 	function ( err ) {
-		console.log( 'An error happened' );
+		console.log( err);
 	}
 );
 

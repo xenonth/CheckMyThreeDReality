@@ -52,8 +52,19 @@ scene.add(light2);
 
 //animate function
 function animate() {
+//animate the lighting
+    const now = Date.now() / 1000;
+    light1.position.x = Math.cos(now) * 20;
+    light1.position.y = 15;
+    light1.position.z =  Math.sin(now) * 20;
+
+    light2.position.x = Math.sin(now) * 20;
+    light2.position.y = 15;
+    light2.position.z = Math.cos(now) * 20;
+    
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }
 
+document.body.appendChild(renderer.domElement)
 animate();
