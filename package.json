@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/xenonth/CheckMyThreeDReality#readme",
   "dependencies": {
+    "cannon-es": "^0.20.0",
     "three": "^0.153.0"
   },
   "devDependencies": {
