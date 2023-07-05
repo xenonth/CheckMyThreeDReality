@@ -52,12 +52,7 @@ function animate () {
 sphereMesh.position.copy(sphereBody.position);
 sphereMesh.quaternion.copy(sphereBody.quaternion);
 
-sphereMesh.rotation.z += 0.01;
-sphereMesh.rotation.x += 0.01;
-
 renderer.render( scene, camera );
-
-
 
 }
 

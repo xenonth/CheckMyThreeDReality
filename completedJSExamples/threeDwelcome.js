@@ -13,7 +13,7 @@ document.body.appendChild(renderer.domElement);
 const loader = new FontLoader();
 const font = loader.load(
 	// resource URL
-	'fonts/helvetiker_bold.typeface.json',
+	'https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/fonts/helvetiker_regular.typeface.json',
 
 	// onLoad callback
 	function ( font ) {
