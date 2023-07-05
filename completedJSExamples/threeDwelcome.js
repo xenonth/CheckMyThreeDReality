@@ -24,10 +24,13 @@ loader.load(
 			size: 10,
 			height: 2,			
 		})
-
+		
 		const textMaterial = new THREE.MeshNormalMaterial();
+
 		const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+		
 		scene.add(textMesh);
+		
 	},
 
 	// onProgress callback
@@ -46,7 +49,8 @@ camera.position.z = 100;
 //animate the text to render to the screen
 function animate() {
   requestAnimationFrame(animate);
-  renderer.render(scene, camera);
+
+ renderer.render(scene, camera);
 }
 
-animate();
+animate()
