@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 
-import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -49,6 +51,41 @@ light2.castShadow = true;
 light2.shadow.mapSize.height = 4096;
 light2.shadow.mapSize.height = 4096;
 scene.add(light2);
+
+const loader = new FontLoader();
+loader.load(
+	// resource URL
+	//'https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/fonts/helvetiker_regular.typeface.json',
+		"node_modules/three/examples/fonts/helvetiker_bold.typeface.json",
+	// onLoad callback
+	function ( font ) {
+		// do something with the font
+		const textGeometry = new TextGeometry("Michael is \namazing", {
+			font: font,
+			size: 10,
+			height: 2,			
+		})
+
+		const textMaterial = new THREE.MeshNormalMaterial();
+		const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+        textMesh.position.x = -36;
+        textMesh.position.y = 5
+        textMesh.rotation.x += 0.01; 
+		scene.add(textMesh);
+	},
+
+	// onProgress callback
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+	},
+
+	// onError callback
+	function ( err ) {
+		console.log( err);
+	}
+);
+
+
 
 //animate function
 function animate() {

@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 //import { FileLoader } from 'three/addons/loaders/FontLoader.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -11,14 +12,22 @@ document.body.appendChild(renderer.domElement);
 
 //calling fontloader
 const loader = new FontLoader();
-const font = loader.load(
+loader.load(
 	// resource URL
-	'https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/fonts/helvetiker_regular.typeface.json',
-
+	//'https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/fonts/helvetiker_regular.typeface.json',
+		"node_modules/three/examples/fonts/helvetiker_bold.typeface.json",
 	// onLoad callback
 	function ( font ) {
 		// do something with the font
-		console.log( font );
+		const textGeometry = new TextGeometry("Hello World!", {
+			font: font,
+			size: 10,
+			height: 2,			
+		})
+
+		const textMaterial = new THREE.MeshNormalMaterial();
+		const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+		scene.add(textMesh);
 	},
 
 	// onProgress callback
@@ -32,7 +41,7 @@ const font = loader.load(
 	}
 );
 
-camera.position.z = 5;
+camera.position.z = 100;
 
 //animate the text to render to the screen
 function animate() {
