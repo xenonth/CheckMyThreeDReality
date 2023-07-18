@@ -54,16 +54,16 @@ const setOnSphere = function(mesh, lat, long, alt) {
 //object
 //adding a grid for visual reference
 scene.add(new THREE.GridHelper(10,10));
-/*const sphere = new THREE.Mesh(
+const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(1.5, 30,30),
     new THREE.MeshNormalMaterial({wireframe: true})
 );
 
-scene.add(sphere); */
+scene.add(sphere); 
 
 const cube = createCube();
 scene.add(cube);
-//setOnSphere(cube, 0.1, 0.3, 2)
+setOnSphere(cube, 0.1, 0.3, 2)
 
 //Animate loop
 //setting camera position and angle
@@ -85,7 +85,7 @@ const update = function(frame, frameMax) {
     const b = 360 * a1;
     const c = 0;
     const length = 5-4 * a2;
-    //setOnSphere(cube, a2, a1, 2);
+    setOnSphere(cube, a2, a1, 2);
     cube.position.copy(vectorFromAngles(a, b, c, length));
     cube.lookAt(0,0,0);
 }
