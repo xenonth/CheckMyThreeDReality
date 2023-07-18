@@ -99,7 +99,7 @@ function animate() {
     light2.position.y = 15;
     light2.position.z = Math.cos(now) * 20;
     
-    textMesh.rotation.x += 0.01;
+    
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
